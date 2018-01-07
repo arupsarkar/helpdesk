@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="helpdesk">
+<head>
+    <base href="/" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Helpdesk</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <!-- JQuery min -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+    <!-- tether -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- fontawesome-->
+    <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    <script src="https://use.fontawesome.com/7166870454.js"></script>
+    <!-- local stylesheet -->
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+</head>
+
+
+<body>
+    <div ng-view id="main"></div>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="./open/open.js"></script>
+    <script src="./archive/archive.js"></script>
+    <script src="./services.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

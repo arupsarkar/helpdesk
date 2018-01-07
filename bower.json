@@ -1,0 +1,19 @@
+{
+  "name": "helpdesk-angular-walkthrough",
+  "version": "1.0.0",
+  "authors": [
+    "Arup Sarkar <sarkar.arup@gmail.com>"
+  ],
+  "license": "ISC",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib"
+  ],
+  "dependencies": {
+    "angular": "~1.6.0",
+    "angular-route": "~1.6.0"
+  }
+}
