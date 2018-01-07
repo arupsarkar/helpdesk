@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const pg = require('pg');
 const path = require('path');
-const connection = 'postgres://localhost:5432/helpdesk';
+// const connection = 'postgres://localhost:5432/helpdesk';
+const connection = 'postgres://wlvcqjflvazvsq:bbe54626626c89d01a54204096e715b426d10f095c4b5e225f9860a19871a4f0@ec2-107-22-183-40.compute-1.amazonaws.com:5432/dbli7dqa32nqb';
 
 var client = new pg.Client(connection);
 client.connect();
