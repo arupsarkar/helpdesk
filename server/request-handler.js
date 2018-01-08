@@ -11,7 +11,8 @@ client.connect();
 exports.submitTicket = (req, res) => {
     const results = [];
     const ticket = req.body;
-    const query = client.query('INSERT INTO tickets(author, subject, issue, chatUrl, archive, status) values ($1, $2, $3, $4, $5, $6)', [ticket.author, ticket.subject, ticket.issue, ticket.chatUrl, ticket.archive, ticket.status]);
+    console.log(' ticket.createdAt : ', ticket.createdAt);
+    const query = client.query('INSERT INTO tickets(author, subject, issue, chatUrl, archive, status, createdAt) values ($1, $2, $3, $4, $5, $6, $7)', [ticket.author, ticket.subject, ticket.issue, ticket.chatUrl, ticket.archive, ticket.status, ticket.createdAt]);
     query.on('row', (row) => {
         results.push(row);
 })

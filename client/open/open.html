@@ -56,20 +56,23 @@
                         <div class="col-md-1"><br /><span class="ticket-delete fa fa-trash-o" ng-click="deleteTicket(ticket)"></span></div>
                         <div class="col-md-1"><br /><span class="ticket-resolve fa fa-check" ng-click="resolveTicket()"></span></div>
                         <div class="col-md-2"><br /><span class="ticket-archive fa fa-archive" ng-click="archiveTicket(ticket)"></span></div>
-                        <div class="col">
-                            Submitted by
-                            <br />
-                            {{ ticket.author }}
-                        </div>
-                        <div class="col">
-                            Created at
-                            <br  />
-                            {{ ticket.createdAt }}
-                        </div>
-                        <div class="col">
-                            Chat link
-                            <br  />
-                            <div class="chat-link"><a href="{{ ticket.chatUrl }}" target="_blank"><span class="ticket-link">{{ ticket.chaturl }}</span></a></div>
+                        <div class="container">
+                            <table class="-table" border="2">
+                                <thead>
+                                <tr>
+                                    <th>Submitted By</th>
+                                    <th>Created Date</th>
+                                    <th>Chat URL</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ticket.author}}</td>
+                                    <td>{{ticket.createdat}}</td>
+                                    <td><div class="chat-link"><a href="{{ ticket.chatUrl }}" target="_blank"><span class="ticket-link">{{ ticket.chaturl }}</span></a></div></td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div> <!-- /row -footer- -->
                 </div>

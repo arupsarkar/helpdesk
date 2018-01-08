@@ -16,6 +16,9 @@ angular.module('helpdesk.open', [])
         $scope.getTickets();
 
         $scope.submitTicket = function(ticket) {
+            var d = new Date();
+            ticket.createdAt = d.toString();
+            console.log('Created Date : ', ticket.createdAt);
             $scope.loading = true;
             Tickets.submitTicket({
                 author: ticket.author,
@@ -23,7 +26,7 @@ angular.module('helpdesk.open', [])
                 issue: ticket.issue,
                 chatUrl: ticket.chatUrl,
                 archive: false,
-                createdAt: new Date(),
+                createdAt: ticket.createdAt,
                 status: true
             })
                 .then(function() {
