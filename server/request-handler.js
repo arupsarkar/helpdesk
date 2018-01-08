@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const pg = require('pg');
 const path = require('path');
-// const connection = 'postgres://localhost:5432/helpdesk';
-const connection = 'postgres://wlvcqjflvazvsq:bbe54626626c89d01a54204096e715b426d10f095c4b5e225f9860a19871a4f0@ec2-107-22-183-40.compute-1.amazonaws.com:5432/dbli7dqa32nqb';
+const connection = process.env.DATABASE_URL || 'postgres://localhost:5432/helpdesk';
+// const connection = 'postgres://wlvcqjflvazvsq:bbe54626626c89d01a54204096e715b426d10f095c4b5e225f9860a19871a4f0@ec2-107-22-183-40.compute-1.amazonaws.com:5432/dbli7dqa32nqb';
 
 var client = new pg.Client(connection);
 client.connect();
@@ -35,9 +35,11 @@ exports.getArchivedTickets = (req, res) => {
     const archiveTickets = [];
     const query = client.query('SELECT * FROM tickets WHERE archive = true');
     query.on('row', (row) => {
+        console.log('request-handler.getArchivedTickets.row : ' + JSON.stringify(archiveTickets));
         archiveTickets.push(row);
 });
     query.on('end', () => {
+        console.log('request-handler.getArchivedTickets.end : ' + JSON.stringify(archiveTickets));
         return res.json(archiveTickets);
 });
 };
@@ -46,7 +48,9 @@ exports.updateTicket = (req, res) => {
     console.log(req.body);
     const results = [];
     const id = req.body.id;
-    const ticket = Object.assign({}, req.body, { archive: !req.body.archive })
+    const ticket = Object.assign({}, req.body, { archive: !req.body.archive });
+    console.log('ticket archive : ', ticket.archive);
+    console.log('id : ', id)
     const query = client.query('UPDATE tickets SET archive = $1 WHERE id = $2', [ticket.archive, id]);
     query.on('row', (row) => {
         results.push(row);

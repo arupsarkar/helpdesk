@@ -18,6 +18,7 @@ angular.module('helpdesk.factories', [])
                 url: '/api/archive'
             })
                 .then(function(resp) {
+                    console.log('services.getArchive : ' + JSON.stringify(resp));
                     return resp.data;
                 });
         };

@@ -6,7 +6,9 @@ angular.module('helpdesk.archive', [])
         $scope.getTickets = function() {
             Tickets.getArchive()
                 .then(function(archivedTickets) {
+                    console.log('ArchiveController.getTickets.archivedTickets : ', JSON.stringify(archivedTickets));
                     $scope.data.tickets = archivedTickets;
+                    console.log('ArchiveController.getTickets.$scope.data.tickets : ', JSON.stringify($scope.data.tickets));
                 })
                 .catch(function(error) {
                     console.error(error);
