@@ -2,7 +2,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#/"><span class="fa fa-home"></span> HelpDesk</a>
+    <a class="navbar-brand" href="#/"><span class="fa fa-home"></span> Popular Views</a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -18,11 +18,11 @@
 <div class="container-fluid content" ng-controller="ArchiveController">
     <div class="row">
         <div class="col-xs-12 col-lg-8">
-            <h2 class="ticket-section-header">Archived Tickets</h2>
+            <h2 class="ticket-section-header">Archived Views</h2>
             <div class='tickets'>
                 <div class='ticket' ng-repeat="ticket in data.tickets">
                     <div class="row ticket-heading">
-                        <div class="col-md-4">Ticket# {{ ticket.id }}</div>
+                        <div class="col-md-4">View# {{ ticket.id }}</div>
                         <div class="col-md-8"><span class="ticket-subject">{{ ticket.subject }}</span></div>
                     </div> <!-- /row -heading- -->
                     <div class="row ticket-body">
