@@ -24,5 +24,5 @@ router.get('/', (req, res, next) => {
 app.listen(port, (err) => {
     err
             ? console.log('Cannot connect...', err)
-        : console.log('Connected! Server is listening on port ${port}');
+        : console.log('Connected! Server is listening on port ' + port);
 });

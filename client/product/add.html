@@ -1,0 +1,50 @@
+
+
+<div class="container-fluid content" ng-controller="AddController">
+  <p1>Product page</p1>
+  <br>
+  {{data}}
+<!--   <form novalidate name="addProductForm" class='addProductForm' ng-submit='addProduct()'>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+ -->
+<!-- <button class="btn btn-primary" ng-click='addProduct()'><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button> -->
+
+    <div class="card">
+        <h3 class="card-header bg-primary white-text">Add a product</h3>
+
+        <div class="card-body">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+
+                    <p>data = {{ product }}</p>
+
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" ng-model="product.name"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" class="form-control" ng-model="product.description"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image:</label>
+                        <input type="text" class="form-control" ng-model="product.image">
+                    </div>
+                    <div class="form-group">
+                        <br>
+                        <button class="btn btn-primary" ng-click="addProduct(product)"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
