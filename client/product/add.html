@@ -2,14 +2,39 @@
 
 <div class="container-fluid content" ng-controller="AddController">
 
+  <!-- Card for list products -->
+  <div class="container-fluid content" class="card">
+    <h3 class="card-header bg-primary white-text">Products</h3>
+    <div class="card-body">
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <label for="search">Search:</label>
+          <br/>
+          <input type="text" class="form-control" ng-model="product.name"/>
+          <br/>
+          <ul>
+            <li ng-repeat="product in products | filter:product.name"><img src={{product.image}} alt="Men's Shirt" width="100" height="100">
+              <br>
+             <b>Name:</b> {{product.name}} Price: {{product.price}}
+              <br>
+            <button class="btn btn-primary" ng-click="buyProduct(product)"><i class="fa fa-shopping-cart"></i> Buy</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Card for adding a product -->
     <div class="card">
         <h3 class="card-header bg-primary white-text">Add a product</h3>
 
         <div class="card-body">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-
-<!--                     <p>data = {{ product }}</p> -->
 
                     <div class="form-group">
                         <label for="name">Name:</label>
@@ -45,26 +70,4 @@
 
 </div>
 
-
-  <div class="container-fluid content" class="card">
-    <h3 class="card-header bg-primary white-text">Products</h3>
-    <div class="card-body">
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <label for="search">Search:</label>
-          <br/>
-          <input type="text" class="form-control" ng-model="product.name"/>
-          <br/>
-          <ul>
-            <li ng-repeat="product in products | filter:product.name"><img src={{product.image}} alt="Men's Shirt" width="100" height="100">
-              <br>
-             <b>Name:</b> {{product.name}} Price: {{product.price}}
-              <br>
-            <button class="btn btn-primary" ng-click="buyProduct(product)"><i class="fa fa-shopping-cart"></i> Buy</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 
