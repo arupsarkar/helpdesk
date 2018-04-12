@@ -3,6 +3,7 @@ angular.module('helpdesk', [
     'helpdesk.open',
     'helpdesk.archive',
     'product.add',
+    'product.cart',
     'ngRoute'
 ])
     .config(function ($routeProvider) {
@@ -22,6 +23,10 @@ angular.module('helpdesk', [
             .when('/product', {
                 templateUrl: './product/add.html',
                 controller: 'AddController'
+            })
+            .when('/cart', {
+                templateUrl: './cart/cart.html',
+                controller: 'CartController'
             })
             .otherwise({
                 redirectTo: '/open'
