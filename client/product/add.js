@@ -9,12 +9,14 @@ angular.module('product.add', [])
                         {name: 'Womens Shoe', image: './images/womens-shoe.jpg', price: 109.99}
                       ];
     console.log(JSON.stringify($scope.products));
-    $scope.data = 'this is data';
+
     $scope.addProduct = function(product){
-      console.log(JSON.stringify(product));
-      $scope.data = 'button clicked';
+      console.log('Add Product', JSON.stringify(product));
     }
 
+    $scope.buyProduct = function(product){
+      console.log('Buy Product', JSON.stringify(product));
+    }
 
     $scope.name = 'AddController';
   });

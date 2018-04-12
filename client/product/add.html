@@ -56,9 +56,11 @@
           <input type="text" class="form-control" ng-model="product.name"/>
           <br/>
           <ul>
-            <li ng-repeat="product in products | filter:product.name"><img src={{product.image}} alt="Men's Shirt" width="100" height="100"> <b>Name:</b> {{product.name}} Price: {{product.price}}
+            <li ng-repeat="product in products | filter:product.name"><img src={{product.image}} alt="Men's Shirt" width="100" height="100">
               <br>
-            <button class="btn btn-primary" ng-click="addProduct(product)"><i class="fa fa-shopping-cart"></i> Buy</button>
+             <b>Name:</b> {{product.name}} Price: {{product.price}}
+              <br>
+            <button class="btn btn-primary" ng-click="buyProduct(product)"><i class="fa fa-shopping-cart"></i> Buy</button>
             </li>
           </ul>
         </div>
