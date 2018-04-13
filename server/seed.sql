@@ -21,5 +21,6 @@ CREATE TABLE contacts(
   city VARCHAR(50),
   state VARCHAR(10),
   postalcode VARCHAR(50),
-  country VARCHAR(100)
+  country VARCHAR(100),
+  status VARCHAR(50)
 );
