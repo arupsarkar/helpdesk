@@ -7,7 +7,14 @@ angular.module('product.cart', [])
     $scope.product_name = urlParams.name;
     $scope.submit = function(contact){
       console.log('Contact', JSON.stringify(contact));
-      Contacts.submitContact(contact);
+      var promise;
+      promise = Contacts.submitContact(contact);
+      promise.then(function(success){
+        console.log("Response - ", success.data);
+      }, function(error){
+        console.log("Error - ", success.data);
+      })
+
     }
     $scope.name = 'CartController';
   });
