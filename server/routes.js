@@ -6,5 +6,6 @@ router.get('/archive', requestHandler.getArchivedTickets);
 router.post('/ticket', requestHandler.submitTicket);
 router.put('/ticket', requestHandler.updateTicket);
 router.post('/delete', requestHandler.deleteTicket);
+router.post('/contact', requestHandler.submitContact);
 
 module.exports = router;

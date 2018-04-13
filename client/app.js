@@ -1,5 +1,6 @@
 angular.module('helpdesk', [
     'helpdesk.factories',
+    'contact.factories',
     'helpdesk.open',
     'helpdesk.archive',
     'product.add',

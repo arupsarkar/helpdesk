@@ -8,6 +8,22 @@ const connection = process.env.DATABASE_URL || 'postgres://localhost:5432/helpde
 var client = new pg.Client(connection);
 client.connect();
 
+exports.submitContact = (req, res) => {
+
+    const results = [];
+    const contact = req.body;
+    const query = client.query('INSERT INTO contacts(firstname, lastname, email, phone, streetaddress, city, state, postalcode, country) values ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [contact.firstname, contact.lastname, contact.email, contact.phone, contact.streetaddress, contact.city, contact.state, contact.postalcode, contact.country]);
+    query.on('row', (row) => {
+        results.push(row);
+})
+    query.on('end', (results) => {
+        console.log(results);
+        return res.json(results);
+});
+
+};
+
+
 exports.submitTicket = (req, res) => {
     const results = [];
     const ticket = req.body;
