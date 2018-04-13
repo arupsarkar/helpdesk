@@ -4,9 +4,36 @@ const pg = require('pg');
 const path = require('path');
 const connection = process.env.DATABASE_URL || 'postgres://localhost:5432/helpdesk';
 // const connection = 'postgres://wlvcqjflvazvsq:bbe54626626c89d01a54204096e715b426d10f095c4b5e225f9860a19871a4f0@ec2-107-22-183-40.compute-1.amazonaws.com:5432/dbli7dqa32nqb';
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 var client = new pg.Client(connection);
 client.connect();
+
+var msg = function(to){
+
+    var email_msg = {
+        to: to,
+        from: 'sarkar.arup@gmail.com',
+        subject: 'Thank you from Burlington Textiles.',
+        text: 'We value your business, hope you had a wonderful experience.',
+        html: '<strong>We value your business, hope you had a wonderful experience.</strong>',
+    };
+
+    return email_msg;
+};
+
+exports.sendEmail = (req, res) => {
+    try{
+        var contact = req.body;
+        var emailMsg = msg(contact.email);
+        sgMail.send(emailMsg);
+    }catch(e){
+        console.log('Error sending email : ', e);
+    }
+
+};
+
 
 exports.submitContact = (req, res) => {
 

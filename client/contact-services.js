@@ -21,6 +21,17 @@ angular.module('contact.factories', [])
                   },function(errorPayload){
                     console.log('Factory create contact error : ', errorPayload);
                   });
+      },
+
+      sendEmail: function(contact){
+        var data = contact;
+        return $http.post('/api/email', data)
+                  .then(function(successPayload){
+                    console.log('Factory send email success : ', successPayload.data);
+                    return successPayload.data;
+                  },function(errorPayload){
+                    console.log('Factory send email error : ', errorPayload);
+                  });
       }
   }
 

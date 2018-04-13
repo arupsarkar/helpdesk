@@ -8,12 +8,19 @@ angular.module('product.cart', [])
     $scope.submit = function(contact){
       console.log('Contact', JSON.stringify(contact));
       var promise;
+      var emailPromise;
       promise = Contacts.submitContact(contact);
       promise.then(function(success){
+        emailPromise = Contacts.sendEmail(contact);
+        $location.path('/checked-out');
         console.log("Response - ", success.data);
       }, function(error){
         console.log("Error - ", success.data);
       })
+
+
+
+
 
     }
     $scope.name = 'CartController';

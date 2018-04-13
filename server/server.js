@@ -5,6 +5,8 @@ const app = express();
 const port = process.env.PORT || 1337;
 const router = express.Router();
 const bodyParser = require('body-parser');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.set('view engine', 'html');
 
