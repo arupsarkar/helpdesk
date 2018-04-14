@@ -10,14 +10,14 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 var client = new pg.Client(connection);
 client.connect();
 
-var msg = function(to){
-
+var msg = function(to, firstname, lastname){
+    var email_body = 'Dear ' + firstname + ' ' + lastname + '. We value your business, hope you had a wonderful experience.';
     var email_msg = {
         to: to,
         from: 'sarkar.arup@gmail.com',
         subject: 'Thank you from Burlington Textiles.',
-        text: 'We value your business, hope you had a wonderful experience.',
-        html: '<strong>We value your business, hope you had a wonderful experience.</strong>',
+        text: email_body,
+        html: '<strong>' + email_body + '</strong>',
     };
 
     return email_msg;
@@ -26,7 +26,7 @@ var msg = function(to){
 exports.sendEmail = (req, res) => {
     try{
         var contact = req.body;
-        var emailMsg = msg(contact.email);
+        var emailMsg = msg(contact.email, contact.firstname, contact.lastname);
         sgMail.send(emailMsg);
     }catch(e){
         console.log('Error sending email : ', e);
@@ -39,7 +39,7 @@ exports.submitContact = (req, res) => {
 
     const results = [];
     const contact = req.body;
-    const query = client.query('INSERT INTO contacts(firstname, lastname, email, phone, streetaddress, city, state, postalcode, country, status) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)', [contact.firstname, contact.lastname, contact.email, contact.phone, contact.streetaddress, contact.city, contact.state, contact.postalcode, contact.country, 'new']);
+    const query = client.query('INSERT INTO contacts(firstname, lastname, email, phone, streetaddress, city, state, postalcode, country, status, product_id) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)', [contact.firstname, contact.lastname, contact.email, contact.phone, contact.streetaddress, contact.city, contact.state, contact.postalcode, contact.country, 'new', contact.product_id]);
     query.on('row', (row) => {
         results.push(row);
 })
